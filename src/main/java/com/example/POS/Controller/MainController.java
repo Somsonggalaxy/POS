@@ -2,6 +2,7 @@ package com.example.POS.Controller;
 
 import com.example.POS.Models.Products;
 import com.example.POS.Repository.ProductRepository;
+import com.example.POS.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +17,12 @@ public class MainController {
     @Autowired
     ProductRepository productRepository;
 
+    @Autowired
+    ProductService productService;
+
     @PostMapping("/addProduct")
     public void addProduct(@RequestBody Products products){
-        productRepository.save(products);
+        productService.save(products);
     }
     @GetMapping("/products")
     public ResponseEntity<?> getAllProducts(){
