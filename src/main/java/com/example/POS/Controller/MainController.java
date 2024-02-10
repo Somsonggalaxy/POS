@@ -44,4 +44,21 @@ public class MainController {
         }
     }
 
+    @PutMapping("/products/{id}")
+    public Products putProductsById(@PathVariable("id") String id, @RequestBody Products newProducts){
+        return productRepository.findById(id)
+                .map(products -> {
+                    products.setName(newProducts.getName());
+                    products.setPrice(newProducts.getPrice());
+                    products.setAmount(newProducts.getAmount());
+                    products.setType(newProducts.getType());
+                    return productRepository.save(products);
+                })
+                .orElseGet(() -> {
+                    newProducts.setId(id);
+                    return productRepository.save(newProducts);
+                });
+    }
+
+
 }
