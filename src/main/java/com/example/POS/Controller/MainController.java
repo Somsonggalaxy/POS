@@ -59,6 +59,16 @@ public class MainController {
                     return productRepository.save(newProducts);
                 });
     }
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<?> delelteProductById(@PathVariable("id") String id){
+        Optional<Products> products = productRepository.findById(id);
+        try {
+            productRepository.deleteById(id);
+            return new ResponseEntity<>("Delete product id "+ id + " successfully.", HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>("Not found product.", HttpStatus.NOT_FOUND);
+        }
+    }
 
 
 }
