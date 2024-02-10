@@ -1,4 +1,4 @@
-package com.example.POS.Controller;
+package com.example.POS.controller;
 
 import com.example.POS.Models.Products;
 import com.example.POS.Repository.ProductRepository;
@@ -6,12 +6,14 @@ import com.example.POS.Service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
+//@RestController
 public class MainController {
 
     @Autowired
@@ -69,6 +71,9 @@ public class MainController {
             return new ResponseEntity<>("Not found product.", HttpStatus.NOT_FOUND);
         }
     }
-
+    @GetMapping("/")
+    public String index(){
+        return "main";
+    }
 
 }
