@@ -79,8 +79,8 @@ public class MainController {
     @ModelAttribute
     @GetMapping("/sell")
     public String showSellPage(Model model){
-        List<Products> products = productRepository.findAll();
-        model.addAttribute("Product:", products);
+        List<Products> productsList = productRepository.findAll();
+        model.addAttribute("products", productsList);
         return "sell";
     }
 
