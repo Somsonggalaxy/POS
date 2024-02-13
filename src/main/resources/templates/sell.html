@@ -35,12 +35,16 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Piece</th>
+                <th>Type</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="products: ${products}">
                 <td th:text="${products.id}" />
                 <td th:text="${products.name}"/>
+                <td th:text="${products.price}" />
+                <td th:text="${products.amount}"/>
+                <td th:text="${products.type}"/>
             </tr>
         </tbody>
     </table>
