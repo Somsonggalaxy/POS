@@ -18,7 +18,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Sell</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Stock</a>
+                    <a class="nav-link active" th:href="@{/stock}">Stock</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active">Order</a>
@@ -45,6 +45,11 @@
                 <td th:text="${products.price}" />
                 <td th:text="${products.amount}"/>
                 <td th:text="${products.type}"/>
+                <td>
+                    <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+                        <div class="progress-bar w-75"></div>
+                    </div>
+                </td>
             </tr>
         </tbody>
     </table>

@@ -77,11 +77,11 @@ public class MainController {
         return "main";
     }
     @ModelAttribute
-    @GetMapping("/sell")
-    public String showSellPage(Model model){
+    @GetMapping("/stock")
+    public String showStockPage(Model model){
         List<Products> productsList = productRepository.findAll();
         model.addAttribute("products", productsList);
-        return "sell";
+        return "stock";
     }
 
 }
