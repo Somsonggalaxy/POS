@@ -84,4 +84,10 @@ public class MainController {
         return "stock";
     }
 
+    @PostMapping("/stock")
+    public String addProducts(@ModelAttribute Products p){
+        productService.save(p);
+        return "stock";
+    }
+
 }
