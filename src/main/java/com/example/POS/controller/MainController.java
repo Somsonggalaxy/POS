@@ -3,6 +3,7 @@ package com.example.POS.controller;
 import com.example.POS.Models.Products;
 import com.example.POS.Repository.ProductRepository;
 import com.example.POS.Service.ProductService;
+import com.example.POS.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 @Controller
@@ -85,9 +87,12 @@ public class MainController {
     }
 
     @PostMapping("/stock")
-    public String addProducts(@ModelAttribute Products p){
-        productService.save(p);
-        return "stock";
+    public String addProducts(@ModelAttribute Products p) throws BaseException {
+        if (Objects.isNull(p.getName())){
+            throw new BaseException(BaseException.ProductNameNull());
+        }else {
+            productService.save(p);
+        }return "stock";
     }
 
 }
