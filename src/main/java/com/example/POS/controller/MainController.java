@@ -88,11 +88,8 @@ public class MainController {
 
     @PostMapping("/stock")
     public String addProducts(@ModelAttribute Products p) throws BaseException {
-        if (p.getName().isBlank()){
-            throw new BaseException(BaseException.ProductNameNull());
-        }else {
-            productService.save(p);
-        }return "stock";
+        productService.createProduct(p);
+        return "stock";
     }
 
 }
