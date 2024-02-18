@@ -98,4 +98,8 @@ public class MainController {
         productService.delete(id);
         return "redirect: /stock";
     }
+    @GetMapping("/sell")
+    public String getSaveProduct(){
+        return "sell";
+    }
 }
