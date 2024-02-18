@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 import java.util.Objects;
@@ -92,4 +93,9 @@ public class MainController {
         return "stock";
     }
 
+    @GetMapping("/stock/delete/{id}")
+    public String deleteProduct(@PathVariable("id") String id) throws BaseException {
+        productService.delete(id);
+        return "redirect: /stock";
+    }
 }
