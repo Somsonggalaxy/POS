@@ -27,11 +27,10 @@
         </div>
     </div>
 </nav>
-<div>
+<div class="mx-5">
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Price</th>
                 <th>Piece</th>
@@ -40,7 +39,6 @@
         </thead>
         <tbody>
             <tr th:each="products: ${products}">
-                <td th:text="${products.id}" />
                 <td th:text="${products.name}"/>
                 <td th:text="${products.price}" />
                 <td th:text="${products.amount}"/>
@@ -50,16 +48,16 @@
                         <div class="progress-bar w-75"></div>
                     </div>
                 </td>
-                <td>
-                    <a th:href="@{'/stock/delete/'+${products.id}}" class="btn btn-danger">Delete</a>
+                <td class="object-fit-sm-contain border rounded">
+                    <a th:href="@{'/stock/delete/'+${products.id}}" class="btn btn-danger w-100">Delete</a>
                 </td>
             </tr>
         </tbody>
     </table>
 </div>
-<div class="dropdown">
+<div class="dropdown m-5">
     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-        Dropdown form
+        Add product
     </button>
     <form th:action="@{/stock}" class="dropdown-menu p-4" method="post">
         <div class="mb-3">
