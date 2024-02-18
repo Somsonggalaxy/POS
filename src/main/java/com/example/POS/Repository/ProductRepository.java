@@ -11,4 +11,7 @@ import java.util.Optional;
 public interface ProductRepository extends MongoRepository<Products, String> {
     @Query("{name: ?0}")
     Optional<Products> findByProduct(String name);
+
+    public String countById(String id);
+
 }

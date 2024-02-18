@@ -7,5 +7,5 @@ public interface ProductService {
     String save(Products products);
 
     void createProduct(Products products) throws BaseException;
-
+    void delete(String id) throws BaseException;
 }

@@ -33,5 +33,10 @@ public class ProductServiceImp implements ProductService {
             save(products);
         }
     }
+    @Override
+    public void delete(String id){
+        String count = productRepository.countById(id);
+        productRepository.deleteById(id);
+    }
 
 }
