@@ -1,6 +1,7 @@
 package com.example.POS.controller;
 
 import com.example.POS.Models.Products;
+import com.example.POS.Models.SellProducts;
 import com.example.POS.Repository.ProductRepository;
 import com.example.POS.Repository.SellRepository;
 import com.example.POS.Service.ProductService;
@@ -26,7 +27,6 @@ public class MainController {
 
     @Autowired
     ProductService productService;
-
 
     @Autowired
     SellRepository sellRepository;
@@ -103,15 +103,21 @@ public class MainController {
         productService.delete(id);
         return "redirect: /stock";
     }
-    @GetMapping("/sell/{id}")
-    public String getSaveProduct(@ModelAttribute Products p, Model model){
-        Optional<Products> productsOptional = sellRepository.findById(p.getId());
-        model.addAttribute("product", productsOptional);
-        return "redirect: /sell";
+//    @GetMapping("/sell")
+//    public String getSaveProduct(@ModelAttribute Products p, Model model){
+//        Optional<Products> productsOptional = sellRepository.findById(p.getId());
+//        model.addAttribute("product", productsOptional);
+//        return "sell";
+//    }
+    @GetMapping("/sell")
+    public String getSaveProduct(Model model){
+        List<SellProducts> productsList = sellRepository.findAll();
+        model.addAttribute("productsList", productsList);
+        return "sell";
     }
-    @PostMapping("/sell/{id}")
-    public String postSaveProduct(@ModelAttribute Products p){
+    @PostMapping("/sell")
+    public String postSaveProduct(@ModelAttribute SellProducts p){
         productService.saveSoldProducts(p);
-        return "redirect: /sell";
+        return "sell";
     }
 }

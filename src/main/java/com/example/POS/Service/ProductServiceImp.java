@@ -1,6 +1,7 @@
 package com.example.POS.Service;
 
 import com.example.POS.Models.Products;
+import com.example.POS.Models.SellProducts;
 import com.example.POS.Repository.ProductRepository;
 import com.example.POS.Repository.SellRepository;
 import com.example.POS.exception.BaseException;
@@ -43,12 +44,12 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteById(id);
     }
     @Override
-    public String saveSoldProducts(Products products) {
-        return sellRepository.save(products).getId();
+    public String saveSoldProducts(SellProducts sellProducts) {
+        return sellRepository.save(sellProducts).getId();
     }
 
     @Override
-    public void createSoldProduct(Products products){
-        saveSoldProducts(products);
+    public void createSoldProduct(SellProducts sellProducts){
+        saveSoldProducts(sellProducts);
     }
 }
