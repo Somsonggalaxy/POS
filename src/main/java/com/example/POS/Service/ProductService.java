@@ -4,8 +4,12 @@ import com.example.POS.Models.Products;
 import com.example.POS.exception.BaseException;
 
 public interface ProductService {
-    String save(Products products);
+    String saveProduct(Products products);
 
     void createProduct(Products products) throws BaseException;
     void delete(String id) throws BaseException;
+
+    String saveSoldProducts(Products products);
+
+    void createSoldProduct(Products products) throws BaseException;
 }

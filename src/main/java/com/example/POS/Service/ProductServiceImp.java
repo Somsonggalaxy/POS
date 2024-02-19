@@ -2,6 +2,7 @@ package com.example.POS.Service;
 
 import com.example.POS.Models.Products;
 import com.example.POS.Repository.ProductRepository;
+import com.example.POS.Repository.SellRepository;
 import com.example.POS.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,8 +14,11 @@ public class ProductServiceImp implements ProductService {
     @Autowired
     private ProductRepository productRepository;
 
+    @Autowired
+    private SellRepository sellRepository;
+
     @Override
-    public String save(Products products) {
+    public String saveProduct(Products products) {
         return productRepository.save(products).getId();
     }
 
@@ -30,7 +34,7 @@ public class ProductServiceImp implements ProductService {
             throw new BaseException(BaseException.ProductNameNull());
         }else {
             System.out.println("save dai");
-            save(products);
+            saveProduct(products);
         }
     }
     @Override
@@ -38,5 +42,13 @@ public class ProductServiceImp implements ProductService {
         String count = productRepository.countById(id);
         productRepository.deleteById(id);
     }
+    @Override
+    public String saveSoldProducts(Products products) {
+        return sellRepository.save(products).getId();
+    }
 
+    @Override
+    public void createSoldProduct(Products products){
+        saveSoldProducts(products);
+    }
 }
