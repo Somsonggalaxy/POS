@@ -115,9 +115,11 @@ public class MainController {
         model.addAttribute("productsList", productsList);
         return "sell";
     }
-    @PostMapping("/sell")
-    public String postSaveProduct(@ModelAttribute SellProducts p){
-        productService.saveSoldProducts(p);
-        return "sell";
+
+    @GetMapping("/search")
+    public String search(@RequestParam("keyword") String keyword, Model model) {
+        List<Products> products = productRepository.findByNameContaining(keyword);
+        model.addAttribute("products", products);
+        return "search_results";
     }
 }
