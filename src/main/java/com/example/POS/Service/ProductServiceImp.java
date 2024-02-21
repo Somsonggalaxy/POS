@@ -43,13 +43,16 @@ public class ProductServiceImp implements ProductService {
         String count = productRepository.countById(id);
         productRepository.deleteById(id);
     }
-    @Override
-    public String saveSoldProducts(SellProducts sellProducts) {
-        return sellRepository.save(sellProducts).getId();
-    }
 
     @Override
-    public void createSoldProduct(SellProducts sellProducts){
-        saveSoldProducts(sellProducts);
+    public Products getProductById(String id){
+        Optional<Products> optional = productRepository.findById(id);
+        Products products = null;
+        if (optional.isPresent()){
+            products = optional.get();
+        }else {
+            throw new RuntimeException("Product not found");
+        }
+        return products;
     }
 }

@@ -10,7 +10,5 @@ public interface ProductService {
     void createProduct(Products products) throws BaseException;
     void delete(String id) throws BaseException;
 
-    String saveSoldProducts(SellProducts sellProducts);
-
-    void createSoldProduct(SellProducts sellProducts) throws BaseException;
+    Products getProductById(String id);
 }
