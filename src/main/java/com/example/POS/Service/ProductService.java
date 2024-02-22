@@ -1,7 +1,6 @@
 package com.example.POS.Service;
 
 import com.example.POS.Models.Products;
-import com.example.POS.Models.SellProducts;
 import com.example.POS.exception.BaseException;
 
 public interface ProductService {
@@ -10,5 +9,5 @@ public interface ProductService {
     void createProduct(Products products) throws BaseException;
     void delete(String id) throws BaseException;
 
-    Products getProductById(String id);
+
 }

@@ -1,9 +1,7 @@
 package com.example.POS.Service;
 
 import com.example.POS.Models.Products;
-import com.example.POS.Models.SellProducts;
 import com.example.POS.Repository.ProductRepository;
-import com.example.POS.Repository.SellRepository;
 import com.example.POS.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,16 +41,5 @@ public class ProductServiceImp implements ProductService {
         String count = productRepository.countById(id);
         productRepository.deleteById(id);
     }
-
-    @Override
-    public Products getProductById(String id){
-        Optional<Products> optional = productRepository.findById(id);
-        Products products = null;
-        if (optional.isPresent()){
-            products = optional.get();
-        }else {
-            throw new RuntimeException("Product not found");
-        }
-        return products;
-    }
+    
 }
