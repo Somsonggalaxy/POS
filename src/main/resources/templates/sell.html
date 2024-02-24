@@ -29,31 +29,36 @@
 </nav>
 <div>
 
-<!--    <form th:action="@{/search}" class="p-4 row g-3" method="post">-->
-<!--        <div class="mb-3 col">-->
-<!--            <label for="productId" class="form-label">Id</label>-->
-<!--            <input type="text" class="form-control" id="productId" placeholder="" name="id">-->
-<!--        </div>-->
-<!--        <br>-->
-<!--        <tr>-->
-<!--            <td colspan="2">-->
-<!--                <button type="submit">Search</button>-->
-<!--            </td>-->
-<!--        </tr>-->
-<!--        <div class="mb-3 col">-->
-<!--            <label for="productName" class="form-label">Name</label>-->
-<!--            <input type="text" th:field="${products.name}" class="form-control" id="productName" placeholder="" name="name">-->
-<!--        </div>-->
-<!--        <div class="mb-3 col">-->
-<!--            <label for="productPrice" class="form-label">Price</label>-->
-<!--            <input type="text" th:field="${products.price}" class="form-control" id="productPrice" placeholder="" name="price">-->
-<!--        </div>-->
-<!--        <div class="mb-3 col">-->
-<!--            <label for="productName" class="form-label">Amount</label>-->
-<!--            <input type="number">-->
-<!--        </div>-->
+    <form th:action="@{/sell}" class="p-4 row g-3" method="post">
+        <div class="mb-3 col">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" placeholder="" name="id">
+        </div>
+        <br>
+        <tr>
+            <td colspan="2">
+                <button type="submit" value="id">Search</button>
+            </td>
+        </tr>
+    </form>
+    <form th:action="@{/stock/search}" method="post" class="row">
+        <div class="mb-3 col">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" placeholder="" name="id">
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" placeholder="" name="id">
+        </div>
+        <div class="mb-3 col">
+            <label class="form-label">Id</label>
+            <input type="text" class="form-control" placeholder="" name="id">
+        </div>
+        <div>
+            <a class="btn" th:href=""></a>
+        </div>
+    </form>
 
-<!--    </form>-->
 </div>
 <div class="mx-5">
     <table class="table table-bordered">
