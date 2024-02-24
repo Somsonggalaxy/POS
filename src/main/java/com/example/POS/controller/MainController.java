@@ -2,6 +2,7 @@ package com.example.POS.controller;
 
 import com.example.POS.Models.Products;
 import com.example.POS.Repository.ProductRepository;
+import com.example.POS.Repository.SellRepository;
 import com.example.POS.Service.ProductService;
 import com.example.POS.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +23,9 @@ public class MainController {
     ProductRepository productRepository;
 
     @Autowired
-    ProductService productService;
-
-    @Autowired
     SellRepository sellRepository;
+    @Autowired
+    ProductService productService;
 
     @PostMapping("/addProduct")
     public void addProduct(@RequestBody Products products) {
@@ -102,6 +102,14 @@ public class MainController {
     public String deleteProduct(@PathVariable("id") String id) throws BaseException {
         productService.delete(id);
         return "redirect: /stock";
+    }
+
+    @ModelAttribute
+    @GetMapping("/sell")
+    public String getProductSell(Model model){
+        List<Products> productsList = sellRepository.findAll();
+        model.addAttribute("productList", productsList);
+        return ("sell");
     }
 }
 

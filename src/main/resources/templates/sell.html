@@ -28,25 +28,32 @@
     </div>
 </nav>
 <div>
-    <form th:action="@{/sell}" class="p-4 row g-3" method="get">
-        <div class="mb-3 col">
-            <label for="productName" class="form-label">Id</label>
-            <input type="text" class="form-control" id="productName" placeholder="" name="id">
-        </div>
-        <div class="mb-3 col">
-            <label for="productName" class="form-label">Name</label>
-            <th:block th:text="${products.name}"></th:block>
-        </div>
-        <div class="mb-3 col">
-            <label for="productName" class="form-label">Price</label>
-            <th:block th:text="${products.price}"></th:block>
-        </div>
-        <div class="mb-3 col">
-            <label for="productName" class="form-label">Amount</label>
-            <input type="number">
-        </div>
-        <button type="submit" class="btn btn-primary mb-3 col mt-5">Add</button>
-    </form>
+
+<!--    <form th:action="@{/search}" class="p-4 row g-3" method="post">-->
+<!--        <div class="mb-3 col">-->
+<!--            <label for="productId" class="form-label">Id</label>-->
+<!--            <input type="text" class="form-control" id="productId" placeholder="" name="id">-->
+<!--        </div>-->
+<!--        <br>-->
+<!--        <tr>-->
+<!--            <td colspan="2">-->
+<!--                <button type="submit">Search</button>-->
+<!--            </td>-->
+<!--        </tr>-->
+<!--        <div class="mb-3 col">-->
+<!--            <label for="productName" class="form-label">Name</label>-->
+<!--            <input type="text" th:field="${products.name}" class="form-control" id="productName" placeholder="" name="name">-->
+<!--        </div>-->
+<!--        <div class="mb-3 col">-->
+<!--            <label for="productPrice" class="form-label">Price</label>-->
+<!--            <input type="text" th:field="${products.price}" class="form-control" id="productPrice" placeholder="" name="price">-->
+<!--        </div>-->
+<!--        <div class="mb-3 col">-->
+<!--            <label for="productName" class="form-label">Amount</label>-->
+<!--            <input type="number">-->
+<!--        </div>-->
+
+<!--    </form>-->
 </div>
 <div class="mx-5">
     <table class="table table-bordered">
@@ -59,12 +66,12 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="productsList: ${productsList}">
-            <td th:text="${productsList.id}"/>
-            <td th:text="${productsList.name}" />
-            <td th:text="${productsList.price}"/>
-            <td th:text="${productsList.amount}"/>
-        </tr>
+            <tr th:each="productList: ${productList}">
+                <td th:text="${productList.id}"/>
+                <td th:text="${productList.name}"/>
+                <td th:text="${productList.price}" />
+                <td th:text="${productList.amount}"/>
+            </tr>
         </tbody>
     </table>
 </div>

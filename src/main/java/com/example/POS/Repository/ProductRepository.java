@@ -13,8 +13,6 @@ public interface ProductRepository extends MongoRepository<Products, String> {
     @Query("{name: ?0}")
     Optional<Products> findByProduct(String name);
 
-    List<Products> findByNameContaining(String keyword);
-
     public String countById(String id);
 
 }
