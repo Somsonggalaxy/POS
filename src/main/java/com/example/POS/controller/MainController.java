@@ -98,10 +98,6 @@ public class MainController {
         productService.createProduct(p);
         return "stock";
     }
-    @GetMapping("/stock/search")
-    public String search(Model model){
-        model.addAttribute("")
-    }
 
     @GetMapping("/stock/delete/{id}")
     public String deleteProduct(@PathVariable("id") String id) throws BaseException {

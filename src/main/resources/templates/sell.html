@@ -44,15 +44,21 @@
     <form th:action="@{/stock/search}" method="post" class="row">
         <div class="mb-3 col">
             <label class="form-label">Id</label>
-            <input type="text" class="form-control" placeholder="" name="id">
+            <tr>
+                <td th:text="${sellId.name}"></td>
+            </tr>
         </div>
         <div class="mb-3 col">
             <label class="form-label">Id</label>
-            <input type="text" class="form-control" placeholder="" name="id">
+            <tr>
+                <td th:text="${sellId.price}"></td>
+            </tr>
         </div>
         <div class="mb-3 col">
             <label class="form-label">Id</label>
-            <input type="text" class="form-control" placeholder="" name="id">
+            <tr>
+                <td th:text="${sellId.amount}"></td>
+            </tr>
         </div>
         <div>
             <a class="btn" th:href=""></a>
