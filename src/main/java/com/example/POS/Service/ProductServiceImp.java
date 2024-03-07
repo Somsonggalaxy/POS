@@ -1,9 +1,7 @@
 package com.example.POS.Service;
 
 import com.example.POS.Models.Products;
-import com.example.POS.Models.SellId;
 import com.example.POS.Repository.ProductRepository;
-import com.example.POS.Repository.SellRepository;
 import com.example.POS.exception.BaseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,9 +12,6 @@ import java.util.Optional;
 public class ProductServiceImp implements ProductService {
     @Autowired
     private ProductRepository productRepository;
-
-    @Autowired
-    private SellRepository sellRepository;
 
     @Override
     public String saveProduct(Products products) {
@@ -44,8 +39,4 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteById(id);
     }
 
-    @Override
-    public void createSellId(SellId sellId){
-        sellRepository.save(sellId);
-    }
 }

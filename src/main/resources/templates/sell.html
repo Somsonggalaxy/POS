@@ -41,29 +41,7 @@
             </td>
         </tr>
     </form>
-    <form th:action="@{/stock/search}" method="post" class="row">
-        <div class="mb-3 col">
-            <label class="form-label">Id</label>
-            <tr>
-                <td th:text="${sellId.name}"></td>
-            </tr>
-        </div>
-        <div class="mb-3 col">
-            <label class="form-label">Id</label>
-            <tr>
-                <td th:text="${sellId.price}"></td>
-            </tr>
-        </div>
-        <div class="mb-3 col">
-            <label class="form-label">Id</label>
-            <tr>
-                <td th:text="${sellId.amount}"></td>
-            </tr>
-        </div>
-        <div>
-            <a class="btn" th:href=""></a>
-        </div>
-    </form>
+
 
 </div>
 <div class="mx-5">
@@ -78,10 +56,10 @@
         </thead>
         <tbody>
             <tr th:each="productList: ${productList}">
-                <td th:text="${productList.id}"/>
-                <td th:text="${productList.name}"/>
-                <td th:text="${productList.price}" />
-                <td th:text="${productList.amount}"/>
+                <td th:text="${}"/>
+                <td th:text="${}"/>
+                <td th:text="${}" />
+                <td th:text="${}"/>
             </tr>
         </tbody>
     </table>
