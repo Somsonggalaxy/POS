@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @Controller
-//@RestController
 public class MainController {
 
     @Autowired
@@ -100,7 +100,16 @@ public class MainController {
         productService.delete(id);
         return "redirect: /stock";
     }
-
+    @GetMapping("/sell")
+    public String sellProduct(){
+        return "sell";
+    }
+    @PostMapping("/search")
+    public String sellPost(@ModelAttribute("productSearchFormData") String id, Model model){
+        Products product = productService.get(id);
+        model.addAttribute("product", product);
+        return "sell";
+    }
 
 
 }

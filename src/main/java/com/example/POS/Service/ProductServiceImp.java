@@ -39,4 +39,8 @@ public class ProductServiceImp implements ProductService {
         productRepository.deleteById(id);
     }
 
+    @Override
+    public Products get(String id){
+        return productRepository.findById(id).get();
+    }
 }
